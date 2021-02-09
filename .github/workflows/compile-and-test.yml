@@ -33,7 +33,7 @@ jobs:
           npm install
           
       - name: echo current path
-        run: cd
+        run: pwd
       
       - name: Compile
         run: rbxtsc build
