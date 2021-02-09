@@ -33,6 +33,9 @@ jobs:
       - name: NPM clean install 
         run: npm ci
       
+      - name: print
+        run: echo hello
+      
       - name: Compile
         run: rbxtsc build
       
