@@ -30,14 +30,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       
-      - name: NPM clean install 
-        run: npm ci
-      
-      - name: print
-        run: echo hello
-      
-      - name: Compile
-        run: rbxtsc build
+      - id: ci-and-build
+        run: npm ci & rbxtsc build
       
   test:
     name: TestEZ
