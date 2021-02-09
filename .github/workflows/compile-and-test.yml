@@ -16,21 +16,25 @@ jobs:
     name: Set up NPM
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [12.x]
-
     steps:
       - uses: actions/checkout@v2
-      - name: Install NodeJS
+      - name: Set up Node
         uses: actions/setup-node@master  
         with:
           node-version: 14.x
           registry-url: 'https://registry.npmjs.org'
-      - name: Install node_modules
+      - name: Install NPM packages
         run: |
           npm ci
           npm install -g roblox-ts@latest
           
-      - run: |
-          rbxtsc --verbose --project=./ --rojo=./default.project.json
+      - name: Compile TS to Luau
+        run: rbxtsc --verbose --project=./ --rojo=./default.project.json
+  
+  test:
+    name: TestEZ
+    runs-on: windows-latest
+    needs: compile
+    
+    steps:
+      - run: ls
