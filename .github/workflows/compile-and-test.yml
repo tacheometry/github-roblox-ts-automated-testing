@@ -31,5 +31,7 @@ jobs:
           npm install -g roblox-ts@latest
           npm install
           
-      - run: rbxtsc --verbose --type=model --project=\"./\" --rojo=\"./default.project.json\"
+      - run: |
+          cp \"./tsconfig.json\" \"./\"
+          rbxtsc --verbose --type=model --project=\"./\" --rojo=\"./default.project.json\"
         working-directory: "./"
