@@ -31,11 +31,13 @@ jobs:
         run: |
           npm install -g roblox-ts@latest
           npm install
-      - name: Compile
-        run: rbxtsc build
-      
+          
       - name: echo current path
         run: cd
+      
+      - name: Compile
+        run: rbxtsc build
+    
       
   test:
     name: TestEZ
