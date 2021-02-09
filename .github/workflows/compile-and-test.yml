@@ -1,4 +1,4 @@
-name: Compile and run Roblox tests
+name: Compile then run Roblox tests
 
 on:
   push:
@@ -13,7 +13,7 @@ on:
 
 jobs:
   compile-and-test:
-    name: Set up NPM
+    name: Compile to Luau then run TestEZ through run-in-roblox
     runs-on: windows-latest
 
     steps:
