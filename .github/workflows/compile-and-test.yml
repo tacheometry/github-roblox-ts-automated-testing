@@ -13,7 +13,7 @@ on:
 
 jobs:
   
-  npm-stuff:
+  compile:
     name: Set up NPM
     runs-on: ubuntu-latest
 
