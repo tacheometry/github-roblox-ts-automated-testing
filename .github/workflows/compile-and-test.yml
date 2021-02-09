@@ -31,4 +31,5 @@ jobs:
           npm install -g roblox-ts@latest
           npm install
           
-      - run: npm run compileToLuau
+      - run: rbxtsc --verbose --type=model --project=\"./src\" --rojo=\"./default.project.json\"
+        working-directory: "./"
