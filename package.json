@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "compileToLuau": "rbxtsc --verbose --type=model --project=src"
+    "compileToLuau": "rbxtsc --verbose --type=model --project=\"src\" --rojo=\"default.project.json\""
   },
   "keywords": [],
   "author": "",
