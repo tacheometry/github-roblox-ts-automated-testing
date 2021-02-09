@@ -41,7 +41,7 @@ jobs:
         run: ls
       
       - name: Compile
-        run: rbxtsc build
+        run: rbxtsc --verbose --type=model --project=src
     
       
   test:
