@@ -14,6 +14,7 @@
     "@rbxts/types": "^1.0.448"
   },
   "dependencies": {
-    "@rbxts/testez": "^0.3.1-ts.6"
+    "@rbxts/testez": "^0.3.1-ts.6",
+    "roblox-ts": "^1.0.0-beta.15"
   }
 }
