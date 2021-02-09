@@ -13,9 +13,8 @@ on:
 
 jobs:
   
-  compile:
-    name: Compile TS to Lua
-
+  npm-stuff:
+    name: Set up NPM
     runs-on: ubuntu-latest
 
     strategy:
@@ -30,12 +29,21 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       
-      - id: ci-and-build
-        run: npm ci & rbxtsc build
+      - run: npm ci
+      
+  compile:
+    name: Compile TS to Luau
+    runs-on: ubuntu-latest
+    
+    needs: npm-stuff
+    
+    steps:
+      - run: rbxtsc build
       
   test:
     name: TestEZ
     runs-on: windows-latest
+    
     needs: compile
     
     steps:
