@@ -1,0 +1,41 @@
+name: Compile and run Roblox tests
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'src/**'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'src/**'
+
+jobs:
+  
+  compile:
+    name: Compile TS to Lua
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci
+      
+      - name: Compile
+        run: rbxtsc build
+      
+  test:
+    name: TestEZ
+    runs-on: windows-latest
+    needs: [compile]
+    
+    steps:
+      - uses: actions/checkout@v2
