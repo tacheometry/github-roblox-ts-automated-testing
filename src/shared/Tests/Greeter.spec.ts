@@ -1,6 +1,6 @@
 /// <reference types="@rbxts/testez/globals" />
 
-import Greeter from "client/Greeter";
+import Greeter from "./Greeter";
 
 export = () => {
     const greeting = Greeter.greet("John");
