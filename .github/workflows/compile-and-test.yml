@@ -32,16 +32,7 @@ jobs:
           npm install -g roblox-ts@latest
           npm install
           
-      - run: cd ../../
-      
-      - name: where am I?
-        run: pwd
-      
-      - name: what files?
-        run: ls
-      
-      - name: Compile
-        run: rbxtsc --verbose --type=model --project=src
+      - run: npm run compileToLuau
     
       
   test:
