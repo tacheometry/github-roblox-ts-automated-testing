@@ -12,17 +12,19 @@ on:
   workflow_dispatch:
 
 jobs:
-  compile:
+  compile-and-test:
     name: Set up NPM
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       - uses: actions/checkout@v2
+        
       - name: Set up Node
-        uses: actions/setup-node@master  
+        uses: actions/setup-node@master
         with:
           node-version: 14.x
           registry-url: 'https://registry.npmjs.org'
+      
       - name: Install NPM packages
         run: |
           npm ci
@@ -30,12 +32,5 @@ jobs:
           
       - name: Compile TS to Luau
         run: rbxtsc --verbose --project=./ --rojo=./default.project.json
-  
-  test:
-    name: TestEZ
-    runs-on: windows-latest
-    needs: compile
-    
-    steps:
-      - uses: actions/checkout@v2
+      
       - run: Get-Item .\*
