@@ -21,6 +21,7 @@ jobs:
         node-version: [12.x]
 
     steps:
+      - uses: actions/checkout@v2
       - name: Install NodeJS
         uses: actions/setup-node@master  
         with:
@@ -32,6 +33,5 @@ jobs:
           npm install
           
       - run: |
-          cp ./tsconfig.json ./
-          rbxtsc --verbose --type=model --project=\"./\" --rojo=\"./default.project.json\"
+          rbxtsc --verbose --type=model --project=./ --rojo=./default.project.json
         working-directory: "./"
