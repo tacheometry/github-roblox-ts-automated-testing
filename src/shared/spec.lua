@@ -6,5 +6,5 @@ local testsFolder = ReplicatedStorage.TS.Tests
 local results = TestEZ.TestBootstrap:run({testsFolder}, TestEZ.Reporters.TextReporter)
 
 if #results.errors > 0 or results.failureCount > 0 then
-	error("Tests failed")
+	error("Tests failed!")
 end
