@@ -32,6 +32,8 @@ jobs:
           npm install -g roblox-ts@latest
           npm install
           
+      - run: cd ../    
+      
       - name: where am I?
         run: pwd
       
