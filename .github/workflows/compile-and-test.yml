@@ -33,5 +33,5 @@ jobs:
           npm install
           
       - run: |
-          rbxtsc --verbose --type=model --project=./ --rojo=./default.project.json
-        working-directory: "./"
+          rbxtsc --verbose --project=./ --rojo=./default.project.json
+          ls
