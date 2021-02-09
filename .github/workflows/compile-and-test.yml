@@ -32,6 +32,6 @@ jobs:
           npm install
           
       - run: |
-          cp \"./tsconfig.json\" \"./\"
+          cp ./tsconfig.json ./
           rbxtsc --verbose --type=model --project=\"./\" --rojo=\"./default.project.json\"
         working-directory: "./"
