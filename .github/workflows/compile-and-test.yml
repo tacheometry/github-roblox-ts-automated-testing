@@ -29,9 +29,8 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - name: Install node_modules
         run: |
+          npm ci
           npm install -g roblox-ts@latest
-          npm install
           
       - run: |
           rbxtsc --verbose --project=./ --rojo=./default.project.json
-          ls
