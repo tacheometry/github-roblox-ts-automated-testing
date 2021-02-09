@@ -32,8 +32,11 @@ jobs:
           npm install -g roblox-ts@latest
           npm install
           
-      - name: echo current path
+      - name: where am I?
         run: pwd
+      
+      - name: what files?
+        run: ls
       
       - name: Compile
         run: rbxtsc build
