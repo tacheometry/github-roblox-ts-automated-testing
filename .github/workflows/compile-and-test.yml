@@ -12,7 +12,6 @@ on:
   workflow_dispatch:
 
 jobs:
-  
   compile:
     name: Set up NPM
     runs-on: ubuntu-latest
@@ -23,7 +22,7 @@ jobs:
 
     steps:
       - name: Install NodeJS
-        uses: actions/setup-node@master
+        uses: actions/setup-node@master  
         with:
           node-version: 14.x
           registry-url: 'https://registry.npmjs.org'
@@ -33,13 +32,3 @@ jobs:
           npm install
           
       - run: npm run compileToLuau
-    
-      
-  test:
-    name: TestEZ
-    runs-on: windows-latest
-    
-    needs: compile
-    
-    steps:
-      - uses: actions/checkout@v2
