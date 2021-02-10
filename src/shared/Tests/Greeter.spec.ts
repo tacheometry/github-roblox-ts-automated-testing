@@ -5,6 +5,10 @@ import Greeter from "./Greeter";
 export = () => {
     const greeting = Greeter.greet("John");
 
+    it("should error!", () => {
+        expect(false).to.equal(true);
+    });
+
     it("should include Hello", () => {
         expect(greeting.match("Hello")).to.be.ok();
     });
