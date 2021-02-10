@@ -28,12 +28,11 @@ jobs:
       - name: Install NPM packages
         run: |
           npm ci
-          npm install -g roblox-ts@latest
           
       - name: Compile TS to Luau
         run: rbxtsc --verbose --project=./ --rojo=./default.project.json
       
-      - name: Install run-in-roblox (Foreman)
+      - name: Install Foreman packages
         uses: Roblox/setup-foreman@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
