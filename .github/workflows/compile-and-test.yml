@@ -28,6 +28,7 @@ jobs:
       - name: Install NPM packages
         run: |
           npm ci
+          npm install --global --production roblox-ts@latest
           
       - name: Compile TS to Luau
         run: rbxtsc --verbose --project=./ --rojo=./default.project.json
