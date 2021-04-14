@@ -37,8 +37,13 @@ jobs:
       - name: Compile TS to Luau
         run: npx rbxtsc --verbose --project=./ --rojo=./default.project.json
 
-      - name: Build place file
+      - name: Build place file (rbxlx)
         run: rojo build default.project.json --output testGame.rbxlx
         
+      - name: Build place file (rbxl)
+        run: rojo build default.project.jsosn --output testGame.rbxl
+       
+      - run: dir /o:-sn
+       
       - name: Run TestEZ tests
         run: run-in-roblox --place testGame.rbxlx --script spec.lua
