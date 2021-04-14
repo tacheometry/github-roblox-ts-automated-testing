@@ -18,22 +18,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-        
-      - name: Get npm cache directory
-        id: npm-cache
-        run: |
-          echo "::set-output name=dir::$(npm config get cache)"
-      - uses: actions/cache@v2
-        with:
-          path: ${{ steps.npm-cache.outputs.dir }}
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
       
       - name: Install NPM packages
-        run: |
-          npm ci
-          npm install --global --production roblox-ts@latest
+        run: npm ci
       
       - name: Install Foreman packages
         uses: Roblox/setup-foreman@v1
@@ -48,7 +35,7 @@ jobs:
         timeout-minutes: 2
 
       - name: Compile TS to Luau
-        run: rbxtsc --verbose --project=./ --rojo=./default.project.json
+        run: npx rbxtsc --verbose --project=./ --rojo=./default.project.json
 
       - name: Build place file
         run: rojo build default.project.json --output testGame.rbxlx
