@@ -38,7 +38,7 @@ jobs:
       - name: Build place file (rbxl)
         run: rojo build default.project.json --output testGame.rbxl
        
-      - run: dir /o:-sn
+      - run: cmd /r dir /o:-sn
        
       - name: Run TestEZ tests
         run: run-in-roblox --place testGame.rbxlx --script spec.lua
