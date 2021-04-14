@@ -27,18 +27,18 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           
-
+      - name: Install Roblox Studio
+        uses: OrbitalOwen/roblox-win-installer-action@1.0
+        with:
+          cookie: ${{ secrets.ROBLOSECURITY }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+        timeout-minutes: 2
 
       - name: Compile TS to Luau
         run: npx rbxtsc --verbose --project=./ --rojo=./default.project.json
 
       - name: Build place file (rbxlx)
         run: rojo build default.project.json --output testGame.rbxlx
-        
-      - name: Build place file (rbxl)
-        run: rojo build default.project.json --output testGame.rbxl
-       
-      - run: cmd /r dir /o:-sn
        
       - name: Run TestEZ tests
         run: run-in-roblox --place testGame.rbxlx --script spec.lua
